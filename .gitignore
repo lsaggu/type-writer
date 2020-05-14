@@ -2,5 +2,6 @@ venv
 *.pyc
 staticfiles
 .env
+[E/e]nv
 db.sqlite3
 #getting-started/*
