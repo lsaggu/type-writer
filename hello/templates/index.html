@@ -4,55 +4,204 @@
 {% block content %}
 
 <div class="jumbotron text-center">
-  <div class="container">
-    <a href="/" class="lang-logo">
-      <img src="{% static 'lang-logo.png'%}">
-    </a>
-    <h1>Getting Started with Python on Heroku</h1>
-    <p>This is a sample Python application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
-    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-python"><span class="glyphicon glyphicon-flash"></span> Getting Started with Python</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/python-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
-  </div>
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <a href="/" class="lang-logo">
+                    <img src="{% static 'images/type-recorder-logo_125x125.png'%}">
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h1 class="display-4">type-player</h1>
+                <p><strong>Type</strong> and <i>replay</i> your text.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div> <!-- styling div -->
+            <div class="col-md-6">
+                <div id="error_message" class="alert alert-danger text-center d-none"></div>
+                <div class="form-group">
+                    <textarea id="text_input" class="form-control text-input shadow" placeholder="Enter your text here..." maxlength="500" required></textarea>
+                </div>
+            </div>
+            <div class="col-md-3"></div> <!-- styling div -->
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <div class="btn-group" role="group">
+                    <button class="btn btn-lg btn-light" onclick="record();">
+                        <svg id="lightning_symbol" class="bi bi-lightning" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M11.251.068a.5.5 0 01.227.58L9.677 6.5H13a.5.5 0 01.364.843l-8 8.5a.5.5 0 01-.842-.49L6.323 9.5H3a.5.5 0 01-.364-.843l8-8.5a.5.5 0 01.615-.09zM4.157 8.5H7a.5.5 0 01.478.647L6.11 13.59l5.732-6.09H9a.5.5 0 01-.478-.647L9.89 2.41 4.157 8.5z" clip-rule="evenodd" />
+                        </svg>
+                        Record
+                    </button>
+                    <button class="btn btn-lg btn-dark" onclick="reset();">
+                        <svg class="bi bi-skip-backward" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M.5 3.5A.5.5 0 011 4v3.248l6.267-3.636c.52-.302 1.233.043 1.233.696v2.94l6.267-3.636c.52-.302 1.233.043 1.233.696v7.384c0 .653-.713.998-1.233.696L8.5 8.752v2.94c0 .653-.713.998-1.233.696L1 8.752V12a.5.5 0 01-1 0V4a.5.5 0 01.5-.5zm7 1.133L1.696 8 7.5 11.367V4.633zm7.5 0L9.196 8 15 11.367V4.633z" clip-rule="evenodd" />
+                        </svg>
+                        Reset
+                    </button>
+                    <button class="btn btn-lg btn-info" onclick="play();">
+                        <svg class="bi bi-cloud-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.887 5.2l-.964-.165A2.5 2.5 0 103.5 10H6v1H3.5a3.5 3.5 0 11.59-6.95 5.002 5.002 0 119.804 1.98A2.501 2.501 0 0113.5 11H10v-1h3.5a1.5 1.5 0 00.237-2.981L12.7 6.854l.216-1.028a4 4 0 10-7.843-1.587l-.185.96z" />
+                            <path fill-rule="evenodd" d="M5 12.5a.5.5 0 01.707 0L8 14.793l2.293-2.293a.5.5 0 11.707.707l-2.646 2.646a.5.5 0 01-.708 0L5 13.207a.5.5 0 010-.707z" clip-rule="evenodd" />
+                            <path fill-rule="evenodd" d="M8 6a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 6z" clip-rule="evenodd" />
+                        </svg>
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row mb-2">
+            <div class="col"></div>
+            <div class="col">
+                <!-- Amazon Advertisement -->
+                <div class="aws-flex-center d-none d-md-block">
+                    <script type="text/javascript">
+                        amzn_assoc_ad_type = "banner";
+                        amzn_assoc_marketplace = "amazon";
+                        amzn_assoc_region = "US";
+                        amzn_assoc_placement = "assoc_banner_placement_default";
+                        amzn_assoc_campaigns = "echo";
+                        amzn_assoc_banner_type = "category";
+                        amzn_assoc_p = "48";
+                        amzn_assoc_isresponsive = "false";
+                        amzn_assoc_banner_id = "08XWGJRGVGCQM3GBTQG2";
+                        amzn_assoc_width = "728";
+                        amzn_assoc_height = "90";
+                        amzn_assoc_tracking_id = "typerecorder-20";
+                        amzn_assoc_linkid = "4bed597698a07afcf4043527839c6b31";
+                    </script>
+                    <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+                </div>
+                <!-- Small version of ad -->
+                <div class="aws-flex-center d-md-none">
+                    <script type="text/javascript">
+                        amzn_assoc_ad_type = "banner";
+                        amzn_assoc_marketplace = "amazon";
+                        amzn_assoc_region = "US";
+                        amzn_assoc_placement = "assoc_banner_placement_default";
+                        amzn_assoc_campaigns = "computers_accesories";
+                        amzn_assoc_banner_type = "category";
+                        amzn_assoc_p = "21";
+                        amzn_assoc_isresponsive = "false";
+                        amzn_assoc_banner_id = "1CG3DJVEBW9EK6JGR482";
+                        amzn_assoc_width = "125";
+                        amzn_assoc_height = "125";
+                        amzn_assoc_tracking_id = "typerecorder-20";
+                        amzn_assoc_linkid = "95db785b682bc8aac9a003ee64f9a2b3";
+                    </script>
+                    <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
 </div>
 <div class="container">
-  <div class="alert alert-info text-center" role="alert">
-    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-python" class="alert-link">Getting Started with Python on Heroku</a> tutorial.
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
-      <ul>
-        <li>This app was deployed to Heroku, either using Git or by using <a href="https://github.com/heroku/python-getting-started">Heroku Button</a> on the repository.</li>
-
-        <li>When Heroku received the source code, it fetched all the dependencies in the <a href="https://github.com/heroku/python-getting-started/blob/master/Pipfile">Pipfile</a>, creating a deployable slug.</li>
-        <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which the slug can be mounted and executed.</li>
-        <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li>
-      </ul>
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-info text-center" role="alert">
+                To create a recording, click on 'Record', type out the message as you wish for it to be played
+            </div>
+        </div>
     </div>
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Next Steps</h3>
-      <ul>
-        <li>If you are following the <a href="https://devcenter.heroku.com/articles/getting-started-with-python">Getting Started</a> guide, then please head back to the tutorial and follow the next steps!</li>
-        <li>If you deployed this app by deploying the Heroku Button, then in a command line shell, run:</li>
-        <ul>
-          <li><code>git clone https://github.com/heroku/python-getting-started.git</code> - this will create a local copy of the source code for the app</li>
-          <li><code>cd python-getting-started</code> - change directory into the local source code repository</li>
-          <li><code>heroku git:remote -a &lt;your-app-name></code> - associate the Heroku app with the repository</li>
-          <li>You'll now be set up to run the app locally, or <a href="https://devcenter.heroku.com/articles/getting-started-with-python#push-local-changes">deploy changes</a> to Heroku</li>
-        </ul>
-      </ul>
-      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-      <ul>
-        <li><a href="https://www.heroku.com/home">Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-python">Getting Started with Python on Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/django-app-configuration">Configuring Django Apps for Heroku</a></li>
-      </ul>
+    <hr>
+    <div class="row">
+        <!-- Amazon Advertisement -->
+        <div class="col"></div>
+        <div class="col mb-2">
+            <!-- Large ad -->
+            <div class="aws-flex-center d-none d-md-block">
+                <script type="text/javascript">
+                    amzn_assoc_ad_type = "banner";
+                    amzn_assoc_marketplace = "amazon";
+                    amzn_assoc_region = "US";
+                    amzn_assoc_placement = "assoc_banner_placement_default";
+                    amzn_assoc_campaigns = "software";
+                    amzn_assoc_banner_type = "category";
+                    amzn_assoc_p = "48";
+                    amzn_assoc_isresponsive = "false";
+                    amzn_assoc_banner_id = "1RN4GK8DRD84QSEK3R02";
+                    amzn_assoc_width = "728";
+                    amzn_assoc_height = "90";
+                    amzn_assoc_tracking_id = "typerecorder-20";
+                    amzn_assoc_linkid = "eb145be9da304e24c552fddb060b9898";
+                </script>
+                <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+            </div>
+            <!-- Small ad -->
+            <div class="aws-flex-center d-md-none">
+                <script type="text/javascript">
+                    amzn_assoc_ad_type = "banner";
+                    amzn_assoc_marketplace = "amazon";
+                    amzn_assoc_region = "US";
+                    amzn_assoc_placement = "assoc_banner_placement_default";
+                    amzn_assoc_campaigns = "software";
+                    amzn_assoc_banner_type = "category";
+                    amzn_assoc_p = "42";
+                    amzn_assoc_isresponsive = "false";
+                    amzn_assoc_banner_id = "14JFQBJ3H70KX89PET02";
+                    amzn_assoc_width = "234";
+                    amzn_assoc_height = "60";
+                    amzn_assoc_tracking_id = "typerecorder-20";
+                    amzn_assoc_linkid = "536f1dd0a8595319980f2e2cbd4cafca";
+                </script>
+                <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+            </div>
+        </div>
+        <div class="col"></div>
     </div>
-  </div> <!-- row -->
-   <div class="alert alert-info text-center" role="alert">
-    Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
-  </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col mb-2">
+            <!-- Large ad -->
+            <div class="aws-flex-center d-none d-md-block">
+                <script type="text/javascript">
+                    amzn_assoc_ad_type = "banner";
+                    amzn_assoc_marketplace = "amazon";
+                    amzn_assoc_region = "US";
+                    amzn_assoc_placement = "assoc_banner_placement_default";
+                    amzn_assoc_banner_type = "ez";
+                    amzn_assoc_p = "48";
+                    amzn_assoc_width = "728";
+                    amzn_assoc_height = "90";
+                    amzn_assoc_tracking_id = "typerecorder-20";
+                    amzn_assoc_linkid = "fd56fd65c446a3f6393bd05a83eeccfa";
+                </script>
+                <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+            </div>
+            <!-- small ad -->
+            <div class="aws-flex-center d-md-none">
+                <script type="text/javascript">
+                    amzn_assoc_ad_type = "banner";
+                    amzn_assoc_marketplace = "amazon";
+                    amzn_assoc_region = "US";
+                    amzn_assoc_placement = "assoc_banner_placement_default";
+                    amzn_assoc_banner_type = "ez";
+                    amzn_assoc_p = "9";
+                    amzn_assoc_width = "180";
+                    amzn_assoc_height = "150";
+                    amzn_assoc_tracking_id = "typerecorder-20";
+                    amzn_assoc_linkid = "917f9f2d8dd4ec13b4fa13369ee5adfe";
+                </script>
+                <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-md-5"></div>
+        <div class="col-md-2" style="border-top-style:solid;">
+            <img src="{% static 'images/type-recorder-favicon_2.png'%}" width="100%" />
+        </div>
+        <div class="col-md-5"></div>
+    </div>
 </div>
+
+<script src="{% static 'scripts/index.js' %}"></script>
+
 {% endblock %}
