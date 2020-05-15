@@ -104,6 +104,6 @@ function type(chars) {
 
     player = setTimeout(() => {
         type(chars.slice(1));
-    }, 300); //length of time (milliseconds) to wait between printing characters
+    }, 100); //length of time (milliseconds) to wait between printing characters
 }
 
