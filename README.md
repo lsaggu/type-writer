@@ -26,5 +26,6 @@ This application accepts text input and then replays that text being typed out o
 
 - This application was put together using the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
 - [Caprturing browser screens](https://developer.mozilla.org/en-US/docs/Web/API/Screen_Capture_API/Using_Screen_Capture)
+- [Initial Inspiration](https://www.circularbit.com/rewritetext/)
 
 
