@@ -20,11 +20,36 @@
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include=".env" />
+    <Content Include=".gitignore" />
+    <Content Include="app.json" />
+    <Content Include="db.sqlite3" />
     <Content Include="gettingstarted\static\humans.txt" />
-    <Content Include="hello\static\lang-logo.png" />
+    <Content Include="hello\static\images\favicon-16x16.png" />
+    <Content Include="hello\static\images\favicon-32x32.png" />
+    <Content Include="hello\static\images\lang-logo.png" />
+    <Content Include="hello\static\images\loran2.jpg" />
+    <Content Include="hello\static\images\type-recorder-favicon_2.png" />
+    <Content Include="hello\static\images\type-recorder-logo_125x125.png" />
+    <Content Include="hello\static\scripts\about.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="hello\static\scripts\index.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="hello\static\scripts\main.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="hello\static\stylesheets\main.css">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="hello\templates\about.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="hello\templates\base.html" />
     <Content Include="hello\templates\db.html" />
     <Content Include="hello\templates\index.html" />
+    <Content Include="README.md" />
     <Content Include="requirements.txt" />
     <Content Include="runtime.txt" />
   </ItemGroup>
@@ -48,6 +73,9 @@
     <Folder Include="hello" />
     <Folder Include="hello\migrations" />
     <Folder Include="hello\static" />
+    <Folder Include="hello\static\images\" />
+    <Folder Include="hello\static\scripts\" />
+    <Folder Include="hello\static\stylesheets\" />
     <Folder Include="hello\templates" />
   </ItemGroup>
   <ItemGroup>
