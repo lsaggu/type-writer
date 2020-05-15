@@ -23,7 +23,7 @@
             <div class="col-md-6">
                 <div id="error_message" class="alert alert-danger text-center d-none"></div>
                 <div class="form-group">
-                    <textarea id="text_input" class="form-control text-input shadow" placeholder="Enter your text here..." maxlength="500" required></textarea>
+                    <textarea id="text_input" class="form-control text-input shadow" placeholder="Enter your text here..." maxlength="500" required onkeypress="handleTextInput(event)" onkeydown="handleWhiteSpaceInput(event)"></textarea>
                 </div>
             </div>
             <div class="col-md-3"></div> <!-- styling div -->
@@ -31,10 +31,8 @@
         <div class="row">
             <div class="col text-center">
                 <div class="btn-group" role="group">
-                    <button class="btn btn-lg btn-light" onclick="record();">
-                        <svg id="lightning_symbol" class="bi bi-lightning" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M11.251.068a.5.5 0 01.227.58L9.677 6.5H13a.5.5 0 01.364.843l-8 8.5a.5.5 0 01-.842-.49L6.323 9.5H3a.5.5 0 01-.364-.843l8-8.5a.5.5 0 01.615-.09zM4.157 8.5H7a.5.5 0 01.478.647L6.11 13.59l5.732-6.09H9a.5.5 0 01-.478-.647L9.89 2.41 4.157 8.5z" clip-rule="evenodd" />
-                        </svg>
+                    <button class="btn btn-lg btn-light" onclick="record();" data-toggle="tooltip" data-placement="top" title="Click here to create a recording of the text that you have entered above.">
+                        <span class="spinner-grow spinner-grow-sm text-danger align-middle" role="status" aria-hidden="true"></span>
                         Record
                     </button>
                     <button class="btn btn-lg btn-dark" onclick="reset();">
@@ -42,14 +40,6 @@
                             <path fill-rule="evenodd" d="M.5 3.5A.5.5 0 011 4v3.248l6.267-3.636c.52-.302 1.233.043 1.233.696v2.94l6.267-3.636c.52-.302 1.233.043 1.233.696v7.384c0 .653-.713.998-1.233.696L8.5 8.752v2.94c0 .653-.713.998-1.233.696L1 8.752V12a.5.5 0 01-1 0V4a.5.5 0 01.5-.5zm7 1.133L1.696 8 7.5 11.367V4.633zm7.5 0L9.196 8 15 11.367V4.633z" clip-rule="evenodd" />
                         </svg>
                         Reset
-                    </button>
-                    <button class="btn btn-lg btn-info" onclick="save();">
-                        <svg class="bi bi-cloud-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.887 5.2l-.964-.165A2.5 2.5 0 103.5 10H6v1H3.5a3.5 3.5 0 11.59-6.95 5.002 5.002 0 119.804 1.98A2.501 2.501 0 0113.5 11H10v-1h3.5a1.5 1.5 0 00.237-2.981L12.7 6.854l.216-1.028a4 4 0 10-7.843-1.587l-.185.96z" />
-                            <path fill-rule="evenodd" d="M5 12.5a.5.5 0 01.707 0L8 14.793l2.293-2.293a.5.5 0 11.707.707l-2.646 2.646a.5.5 0 01-.708 0L5 13.207a.5.5 0 010-.707z" clip-rule="evenodd" />
-                            <path fill-rule="evenodd" d="M8 6a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 6z" clip-rule="evenodd" />
-                        </svg>
-                        Save
                     </button>
                 </div>
             </div>
@@ -96,7 +86,7 @@
                     </script>
                     <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
                 </div>
-            </div>
+            </div> 
             <div class="col"></div>
         </div>
     </div>
@@ -105,7 +95,19 @@
     <div class="row">
         <div class="col">
             <div class="alert alert-info text-center" role="alert">
-                To create a recording, click on 'Record', type out the message as you wish for it to be played
+                To create a recording, type out the message as you wish for it to be played, then click on <strong>Record</strong>. To start a new recording, click on <strong>Reset</strong>.
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h5>Your Recording!</h5>
+                </div>
+                <div class="card-body">
+                    <span id="player_output" class="card-text">Nothing recorded yet...</span>
+                </div>
             </div>
         </div>
     </div>
