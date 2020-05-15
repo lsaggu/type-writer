@@ -5,3 +5,7 @@ staticfiles
 [E/e]nv
 db.sqlite3
 #getting-started/*
+
+# Visual Studio files
+type-writer.sln
+type-writer.pyproj
