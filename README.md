@@ -28,4 +28,6 @@ This application accepts text input and then replays that text being typed out o
 - [Caprturing browser screens](https://developer.mozilla.org/en-US/docs/Web/API/Screen_Capture_API/Using_Screen_Capture)
 - [Initial Inspiration](https://www.circularbit.com/rewritetext/)
 
+- [Keyboard typing sound effect](https://www.youtube.com/watch?v=l7UAvZ3jbY8)
+
 

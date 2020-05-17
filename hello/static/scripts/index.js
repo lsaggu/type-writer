@@ -1,6 +1,7 @@
 //global vars
 var text = []; //this is the text that has been captured and is to be recorded and played back
 var player;
+var audioPlayer = document.getElementById('audio_player');
 
 // on page load
 $(document).ready(() => {
@@ -57,9 +58,11 @@ function record() {
 
     $('#text_input').removeClass('error');
 
-    console.log('recording...');
-
     $('#player_output').text(null); //clear existing text
+
+
+    //start typing sound effect
+    audioPlayer.play();
 
     //type text
     type(text);
@@ -79,11 +82,19 @@ function reset() {
     $('#error_message').text('');
     $('#error_message').addClass('d-none'); //clear error message
 
+    //stop typing sound effect
+    audioPlayer.pause();
+    audioPlayer.currentTime = 0; //restart audio clip
+
 }
 
 //recursive function for "typing text" on the screen
 function type(chars) {
     if (chars.length === 0) {
+        //stop typing sound effect
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0; //restart audio clip
+
         return;
     }
 
@@ -104,6 +115,6 @@ function type(chars) {
 
     player = setTimeout(() => {
         type(chars.slice(1));
-    }, 100); //length of time (milliseconds) to wait between printing characters
+    }, 200); //length of time (milliseconds) to wait between printing characters
 }
 

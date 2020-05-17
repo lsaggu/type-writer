@@ -3,17 +3,17 @@
 
 {% block content %}
 
-<div class="jumbotron text-center">
+<div class="jumbotron">
     <div class="container">
         <div class="row">
             <div class="col text-center">
                 <a href="/" class="lang-logo">
-                    <img src="{% static 'images/type-recorder-logo_125x125.png'%}">
+                    <img src="{% static 'images/type-recorder-logo_125x125.png' %}">
                 </a>
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col text-center">
                 <h1 class="display-4">type-player</h1>
                 <p><strong>Type</strong> and <i>replay</i> your text.</p>
             </div>
@@ -22,18 +22,31 @@
             <div class="col-md-3"></div> <!-- styling div -->
             <div class="col-md-6">
                 <div id="error_message" class="alert alert-danger text-center d-none"></div>
-                <div class="form-group">
-                    <textarea id="text_input" class="form-control text-input shadow" placeholder="Enter your text here..." maxlength="500" required onkeypress="handleTextInput(event)" onkeydown="handleWhiteSpaceInput(event)"></textarea>
-                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="text_input" class="text-left">
+                            <span class="spinner-grow spinner-grow-sm text-danger align-middle" role="status" aria-hidden="true"></span>
+                            Recording
+                        </label>
+                        <textarea id="text_input" class="form-control text-input shadow" placeholder="Enter your text here..." maxlength="500" required onkeypress="handleTextInput(event)" onkeydown="handleWhiteSpaceInput(event)"></textarea>
+                    </div>
+                </form>
             </div>
             <div class="col-md-3"></div> <!-- styling div -->
+        </div>
+        <div class="row"> <!-- audio player -->
+            <div class="col text-center">
+                <audio id="audio_player" src="{% static 'audio/keyboard_typing_sfx.wav' %}" loop></audio>
+            </div>
         </div>
         <div class="row">
             <div class="col text-center">
                 <div class="btn-group" role="group">
                     <button class="btn btn-lg btn-light" onclick="record();" data-toggle="tooltip" data-placement="top" title="Click here to create a recording of the text that you have entered above.">
-                        <span class="spinner-grow spinner-grow-sm text-danger align-middle" role="status" aria-hidden="true"></span>
-                        Record
+                        <svg class="bi bi-play" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 010 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z" clip-rule="evenodd" />
+                        </svg>
+                        Play
                     </button>
                     <button class="btn btn-lg btn-dark" onclick="reset();">
                         <svg class="bi bi-skip-backward" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -92,14 +105,7 @@
     </div>
 </div>
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="alert alert-info text-center" role="alert">
-                To create a recording, type out the message as you wish for it to be played, then click on <strong>Record</strong>. To start a new recording, click on <strong>Reset</strong>.
-            </div>
-        </div>
-    </div>
-    <div class="row">
+    <div class="row mb-3">
         <div class="col">
             <div class="card text-center">
                 <div class="card-header">
@@ -108,6 +114,15 @@
                 <div class="card-body">
                     <span id="player_output" class="card-text">Nothing recorded yet...</span>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-info text-center" role="alert">
+                Go ahead and start typing! The <i>type-player</i> is already recording.
+                To play and save a recording, type out the message as you wish for it to be played, then click on <strong>Play</strong>.
+                To start a new recording, click on <strong>Reset</strong>.
             </div>
         </div>
     </div>

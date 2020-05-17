@@ -17,15 +17,15 @@ main {
     margin-top: -70px;
 }
 
-    .jumbotron .btn-primary:hover {
-        background: #7646c1;
-    }
+.jumbotron .btn-primary:hover {
+    background: #7646c1;
+}
 
-    .jumbotron p {
-        color: black;
-        max-width: 75%;
-        margin: 1em auto 2em;
-    }
+.jumbotron p {
+    color: black;
+    max-width: 75%;
+    margin: 1em auto 2em;
+}
 
 .error {
     border-color: red;
