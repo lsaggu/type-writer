@@ -1,9 +1,9 @@
 {
-  "name": "Start on Heroku: Python",
-  "description": "A barebones Python app, which can easily be deployed to Heroku.",
+  "name": "type-writer",
+  "description": "A barebones Python app for creating recordings of text being typed out. These recordings can be saved, shared, and replayed. The app can easily be deployed to Heroku.",
   "image": "heroku/python",
-  "repository": "https://github.com/heroku/python-getting-started",
-  "keywords": ["python", "django" ],
+  "repository": "https://github.com/lsaggu/type-writer",
+  "keywords": [ "python", "django" ],
   "addons": [ "heroku-postgresql" ],
   "env": {
     "SECRET_KEY": {
