@@ -23,7 +23,7 @@ def save(request):
     
     logger.info('saving...')
     body = request.POST
-    logger.info(body.getlist('recording[]'))    
+    charCodes = body.getlist('recording[]') # get array of charCodes
     
     recording = Recording()
 
