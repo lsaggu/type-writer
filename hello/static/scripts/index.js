@@ -57,6 +57,7 @@ function save() {
     }
 
     $('#text_input').removeClass('error');
+    $('#error_message').addClass('d-none'); //hide error message
 
     $('#player_output').text(null); //clear existing text
 
@@ -68,7 +69,7 @@ function save() {
     type(text);
 
     //save the recording
-    $.post("/save", { recording: text }, function (data) {
+    $.post("/save", { csrfmiddlewaretoken: $('meta[name="csrf-token"]').attr('content'), recording: text }, function (data) {
         console.log(data);
 
     }).catch((error) => {

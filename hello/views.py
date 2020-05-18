@@ -1,9 +1,13 @@
 import requests
+import logging
 
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpRequest
 
 from .models import Greeting, Recording
+
+# Vars
+logger = logging.getLogger('mylogger')
 
 # Create your views here.
 def index(request):
@@ -16,8 +20,14 @@ def about(request):
 
 # route to save a recording
 def save(request):
-    print('saving...')
+    
+    logger.info('saving...')
+    body = request.POST
+    logger.info(body.getlist('recording[]'))    
+    
     recording = Recording()
+
+    return HttpResponse(status=200)
 
 
 def db(request):
