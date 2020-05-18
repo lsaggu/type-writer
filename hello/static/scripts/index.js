@@ -47,8 +47,8 @@ function handleWhiteSpaceInput(event) {
     
 }
 
-//create a recording of the text that was entered into the text input
-function record() {
+//save a recording of the text that was entered into the text input
+function save() {
     //check if text input is empty
     if ($('#text_input').val() == null || $('#text_input').val() == '') {
         $('#text_input').addClass('error');
@@ -66,6 +66,18 @@ function record() {
 
     //type text
     type(text);
+
+    //save the recording
+    $.post("/save", { recording: text }, function (data) {
+        console.log(data);
+
+    }).catch((error) => {
+        console.log('error');
+        console.log(error);
+
+        $('#error_message').text('There was an issue with your request...');
+        $('#error_message').removeClass('d-none'); //show error message
+    })
 }
 
 //reset the recorder

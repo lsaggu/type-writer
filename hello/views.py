@@ -3,7 +3,7 @@ import requests
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .models import Greeting
+from .models import Greeting, Recording
 
 # Create your views here.
 def index(request):
@@ -13,6 +13,11 @@ def index(request):
 
 def about(request):
     return render(request, "about.html")
+
+# route to save a recording
+def save(request):
+    print('saving...')
+    recording = Recording()
 
 
 def db(request):

@@ -42,11 +42,12 @@
         <div class="row">
             <div class="col text-center">
                 <div class="btn-group" role="group">
-                    <button class="btn btn-lg btn-light" onclick="record();" data-toggle="tooltip" data-placement="top" title="Click here to create a recording of the text that you have entered above.">
-                        <svg class="bi bi-play" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 010 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z" clip-rule="evenodd" />
+                    <button class="btn btn-lg btn-light" onclick="save();" data-toggle="tooltip" data-placement="top" title="Click here to create a recording of the text that you have entered above.">
+                        <svg class="bi bi-arrow-bar-down" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M11.354 10.146a.5.5 0 010 .708l-3 3a.5.5 0 01-.708 0l-3-3a.5.5 0 01.708-.708L8 12.793l2.646-2.647a.5.5 0 01.708 0z" clip-rule="evenodd" />
+                            <path fill-rule="evenodd" d="M8 6a.5.5 0 01.5.5V13a.5.5 0 01-1 0V6.5A.5.5 0 018 6zM2 3.5a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5z" clip-rule="evenodd" />
                         </svg>
-                        Play
+                        Save
                     </button>
                     <button class="btn btn-lg btn-dark" onclick="reset();">
                         <svg class="bi bi-skip-backward" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -117,11 +118,28 @@
             </div>
         </div>
     </div>
+    <div class="row mb-3">
+        <div class="col">
+            <!-- table of recordings -->
+            <table id="recordings_table" class="table table-responsive-md">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Text</th>
+                        <th scope="col">Created Date/Time</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="recordings_table_body"></tbody>
+            </table>
+            <div id="empty_table_msg" class="alert alert-secondary text-center" role="alert">There are no recordings yet.</div>
+        </div>
+    </div>
     <div class="row">
         <div class="col">
             <div class="alert alert-info text-center" role="alert">
                 Go ahead and start typing! The <i>type-player</i> is already recording.
-                To play and save a recording, type out the message as you wish for it to be played, then click on <strong>Play</strong>.
+                To save a recording, type out the message as you wish for it to be played, then click on <strong>Save</strong>.
                 To start a new recording, click on <strong>Reset</strong>.
             </div>
         </div>
