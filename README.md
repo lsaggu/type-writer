@@ -30,4 +30,8 @@ This application accepts text input and then replays that text being typed out o
 
 - [Keyboard typing sound effect](https://www.youtube.com/watch?v=l7UAvZ3jbY8)
 
+# Changelog
+
+- 11/18/2022 - Updating Heroku stack to Heroku-22
+
 

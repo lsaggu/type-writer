@@ -24,10 +24,11 @@ def save(request):
     logger.info('saving...')
     body = request.POST
     charCodes = body.getlist('recording[]') # get array of charCodes
-    
+    logger.info(charCodes)
     recording = Recording()
+    recording.save()
 
-    return HttpResponse(status=200)
+    return HttpResponse('OK', status=200)
 
 
 def db(request):
@@ -36,5 +37,6 @@ def db(request):
     greeting.save()
 
     greetings = Greeting.objects.all()
+    recordings = Recording.objects.all()
 
-    return render(request, "db.html", {"greetings": greetings})
+    return render(request, "db.html", { "greetings": greetings, "recordings": recordings })

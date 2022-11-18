@@ -16,6 +16,18 @@
 
 </ul>
 
+<hr />
+
+<h2>Recordings</h2>
+
+<ul>
+
+{% for recording in recordings %}
+    <li>{{ recording.dateTime }}</li>
+{% endfor %}
+
+</ul>
+
 </div>
 
 {% endblock %}

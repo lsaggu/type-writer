@@ -8,6 +8,7 @@ class Greeting(models.Model):
 
 # recordings table
 class Recording(models.Model):
-    name = models.CharField(max_length=255)
-    dateTime = models.DateTimeField("Date/Time Created")
-    array = ArrayField(models.IntegerField())
+    # name = models.CharField(max_length=255)
+    dateTime = models.DateTimeField("Date/Time Created", auto_now_add=True)
+    
+    array = ArrayField(models.CharField(max_length=10, blank=True),)
