@@ -32,6 +32,6 @@ This application accepts text input and then replays that text being typed out o
 
 # Changelog
 
-- 11/18/2022 - Updating Heroku stack to Heroku-22
+- 11/18/2022 - Updating Heroku stack to Heroku-20
 
 
